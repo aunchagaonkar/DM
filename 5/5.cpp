@@ -39,10 +39,13 @@ float calculateQuartile3(vector<int> full_dataset) {
 }
 
 int main() {
+    cout << "Enter input file name: ";
+    string fileName;
+    getline(cin, fileName);
 
-    ifstream inputFile("exp5_input.csv");
+    ifstream inputFile(fileName);
     if (!inputFile.is_open()) {
-        cout << "Error: Could not open the input file." << endl;
+        cout << "Error: Could not open the input file: " << fileName << endl;
         return 1;
     }
 
@@ -85,7 +88,7 @@ int main() {
     cout << "Median: " << medianVal << endl;
     cout << "Q3: " << q3 << endl;
     cout << "Maximum: " << maxValue << endl;
-    cout << "\nResults have been saved to exp4_output.csv" << endl;
+    cout << "\nResults have been saved to exp5_output.csv" << endl;
 
     inputFile.close();
     outputFile.close();

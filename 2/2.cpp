@@ -99,14 +99,17 @@ vector<double> normalizeDecimal(const vector<double>& values) {
 }
 
 int main() {
-    string filePath = "iris.csv";
+    cout << "--- Dataset Normalization Tool ---\n";
+    cout << "Enter input file name: ";
+    string filePath;
+    getline(cin, filePath);
+    
     ifstream file(filePath);
     if (!file.is_open()) {
         cerr << "Failed to open file: " << filePath << endl;
         return 1;
     }
 
-    cout << "--- Iris Dataset Normalization Tool ---\n";
     cout << "Enter column names to normalize (comma-separated): ";
     string input;
     getline(cin, input);

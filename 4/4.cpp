@@ -4,10 +4,14 @@ using namespace std;
 
 int main()
 {
-    fstream file("exp4_input.csv", ios::in);
+    cout << "Enter input file name: ";
+    string fileName;
+    getline(cin, fileName);
+    
+    fstream file(fileName, ios::in);
     if (!file.is_open())
     {
-        cout << "Couldn't open file";
+        cout << "Couldn't open file: " << fileName << endl;
         return 0;
     }
 
@@ -22,7 +26,7 @@ int main()
     while (getline(file, line))
     {
         stringstream str(line);
-        if (lineNo++ == 0) continue; // Skip header
+        if (lineNo++ == 0) continue;
         getline(str, country, ',');
         getline(str, company, ',');
         getline(str, countStr, ',');
@@ -86,6 +90,6 @@ int main()
     fw << grandTotal << ",100%,100%\n";
 
     fw.close();
-    cout << "Output written to exp3_output.csv\n";
+    cout << "Output written to exp4_output.csv\n";
     return 0;
 }
